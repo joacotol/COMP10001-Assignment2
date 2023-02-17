@@ -1,0 +1,9 @@
+userString = input("What is your String? ")
+anotherWord = ""
+userString = userString[:4] + "H"
+
+for i in range(len(userString)):
+    if i % 2 == 0:
+        anotherWord += userString[i]
+print(anotherWord)
+
