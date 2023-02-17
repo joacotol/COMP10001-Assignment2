@@ -1,6 +1,12 @@
 userString = input("What is your String? ")
 anotherWord = ""
-userString = userString[:4] + "H"
+
+# This is splicing
+#userString = userString[:4] + "H"
+
+# This appends it to the rest of the string structure
+userString = userString[:2] + "n" + userString[3:]
+print(userString)
 
 for i in range(len(userString)):
     if i % 2 == 0:
