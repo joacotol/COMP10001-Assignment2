@@ -3,8 +3,9 @@
 import random
 
 # At the beginning of the program, the computer randomly creates a price for an item
-amount = random.randint(0,20) + round(random.randint(0,100)/100, 2)
-print(amount)
+amount = random.randint( 0,20 ) + round( random.randint( 0,100 )/100, 2 )
+
+print( amount )
 
 # Asks the user how much they would like to pay
 # Assume that it has to be more than the variable amount
@@ -23,7 +24,10 @@ if change > 0:
     nickels = 0
     #print(change)
 
+    # Get the whole amount of dollars from the variable change
     dollars = change // 100
+    # Get the remaning change using a modulo,
+    # This will repeat for the other calcuations when it comes to getting the other coins
     change = change % 100
 
     #print(dollars)
@@ -41,10 +45,20 @@ if change > 0:
         #print(nickels)
         #print(change)
 
-        # This formula allows the program to round up or down the remaining change (pennies),
-        # if it will round up to a nickel or not
-        nickels = nickels + int(round( (change * 2) / 100, 1) * 10)
+        # This checks if there are remaining pennies they will be converted to nickels
+        if change > 0:
+            nickels += 1
+        #nickels = nickels + int(round( (change) / 100, 2) * 10)
         #print(nickels)
+
+        # This checks if there are multiple smaller coins convert it into a bigger change
+        if dimes >= 2 and nickels >= 1:
+            dimes -= 2
+            nickels -= 1
+            quarters += 1
+        elif nickels >= 1:
+            nickels -= 2
+            dimes += 1
 
         print( "You got %d dollars, %d quarters, %d dimes, and %d nickels back in change" % ( dollars, quarters, dimes, nickels))
 
@@ -53,4 +67,3 @@ if change > 0:
 
 else:
     print("No change owed")
-
